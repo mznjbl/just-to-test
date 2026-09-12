@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<article>
+  <div class="wrap prose">
+    <div class="article-head">
+      <div class="article-head__meta">
+        {{ page.date | date: "%-d %B %Y" }}
+        {% if page.ward %} · {% for w in site.wards %}{% if w.key == page.ward %}{{ w.name }}{% endif %}{% endfor %}{% endif %}
+        {% if page.verdict == "myth" %} · <span class="tag tag--myth">MITOS</span>
+        {% elsif page.verdict == "fact" %} · <span class="tag tag--fact">FAKTA</span>{% endif %}
+      </div>
+      <h1>{{ page.title }}</h1>
+    </div>
+
+    {% if page.symptom or page.diagnosis %}
+    <div class="chart">
+      {% if page.symptom %}
+      <div class="chart__row">
+        <div class="chart__label">Simptom</div>
+        <div class="chart__value">{{ page.symptom }}</div>
+      </div>
+      {% endif %}
+      {% if page.diagnosis %}
+      <div class="chart__row">
+        <div class="chart__label">Diagnosis</div>
+        <div class="chart__value">{{ page.diagnosis }}</div>
+      </div>
+      {% endif %}
+      {% if page.treatment %}
+      <div class="chart__row">
+        <div class="chart__label">Rawatan</div>
+        <div class="chart__value">{{ page.treatment }}</div>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="article-body">
+      {{ content }}
+
+      {% if page.prescription %}
+      <div class="prescription">
+        <div class="prescription__label">Preskripsi — apa yang kami sendiri guna/cadangkan</div>
+        <ol>
+          {% for item in page.prescription %}
+          <li><a href="{{ item.url }}" rel="sponsored nofollow" target="_blank">{{ item.name }}</a> — {{ item.note }}</li>
+          {% endfor %}
+        </ol>
+        <p class="prescription__note">{{ site.disclosure_short }}</p>
+      </div>
+      {% endif %}
+
+      {% include ad-slot.html position="in-article" %}
+    </div>
+  </div>
+</article>

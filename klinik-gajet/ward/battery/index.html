@@ -1,0 +1,18 @@
+---
+layout: default
+title: Ward Bateri
+---
+<div class="wrap page">
+  <div class="hero__eyebrow">Ward Bateri</div>
+  <h1>Bateri health, cycle count &amp; mitos "100% rosak battery"</h1>
+  <p class="hero__lede">Semua yang orang salah faham pasal battery health iPhone — dan bila sebenarnya anda patut risau.</p>
+
+  {% assign ward_posts = site.posts | where: "ward", "battery" %}
+  <div class="post-grid" style="margin-top:2rem;">
+    {% for post in ward_posts %}
+      {% include post-card.html post=post %}
+    {% else %}
+      <p>Belum ada artikel di ward ni lagi — datang balik tak lama lagi.</p>
+    {% endfor %}
+  </div>
+</div>

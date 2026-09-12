@@ -1,0 +1,53 @@
+---
+layout: default
+title: null
+---
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__eyebrow">Klinik Gajet</div>
+    <h1>Gajet sakit? Kami diagnose dulu sebelum anda beli apa-apa.</h1>
+    <p class="hero__lede">
+      Battery health confuse anda? Storan penuh tapi tak tahu punca? Kami
+      pecahkan istilah teknikal Apple kepada bahasa yang orang Malaysia
+      faham — tanpa clickbait, tanpa suruh anda upgrade terus.
+    </p>
+
+    <div class="symptom-picker">
+      <div class="symptom-picker__label">Pilih simptom gajet anda:</div>
+      <div class="symptom-picker__options">
+        <a class="symptom-chip" href="{{ '/ward/battery/' | relative_url }}">Bateri cepat habis</a>
+        <a class="symptom-chip" href="{{ '/ward/storage/' | relative_url }}">Storan penuh</a>
+        <a class="symptom-chip" href="{{ '/ward/accessories/' | relative_url }}">Nak beli aksesori</a>
+        <a class="symptom-chip" href="{{ '/ward/screen/' | relative_url }}">Skrin / badan calar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="wards">
+    {% for w in site.wards %}
+    <a class="ward ward--{{ w.color }}" href="{{ '/ward/' | append: w.slug | append: '/' | relative_url }}">
+      <div class="ward__name">{{ w.name }}</div>
+      <div class="ward__count">
+        {% assign c = site.posts | where: "ward", w.key | size %}
+        {{ c }} artikel
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  {% include ad-slot.html position="homepage-top" %}
+
+  <div class="section-heading">
+    <h2>Consultation terkini</h2>
+  </div>
+
+  <div class="post-grid">
+    {% for post in site.posts limit: 8 %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+
+  {% include ad-slot.html position="homepage-bottom" %}
+</div>

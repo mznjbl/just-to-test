@@ -1,0 +1,18 @@
+---
+layout: default
+title: Jagaan Skrin & Badan
+---
+<div class="wrap page">
+  <div class="hero__eyebrow">Jagaan Skrin &amp; Badan</div>
+  <h1>Elak calar, pecah &amp; "yellowing" tanpa over-protect</h1>
+  <p class="hero__lede">Case dan screen protector yang betul-betul perlu — dan bila casing sebenarnya buat lebih kerosakan.</p>
+
+  {% assign ward_posts = site.posts | where: "ward", "screen" %}
+  <div class="post-grid" style="margin-top:2rem;">
+    {% for post in ward_posts %}
+      {% include post-card.html post=post %}
+    {% else %}
+      <p>Belum ada artikel di ward ni lagi — datang balik tak lama lagi.</p>
+    {% endfor %}
+  </div>
+</div>
