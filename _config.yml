@@ -1,0 +1,47 @@
+title: Klinik Gajet
+tagline: "Diagnosis & rawatan untuk iPhone, iPad & Mac anda"
+description: >-
+  Panduan jujur pasal battery health, storan iCloud, dan aksesori Apple —
+  ditulis untuk orang Malaysia yang tak nak kena tipu jargon teknikal.
+url: "" # e.g. "https://yourusername.github.io" — fill in once you know your GitHub Pages URL
+baseurl: "" # e.g. "/klinik-gajet" if this repo is NOT named yourusername.github.io
+
+# --- Editable business info ---
+author: Klinik Gajet
+lang: "ms-MY"
+disclosure_short: "Sesetengah pautan dalam post ni ialah pautan affiliate (contoh Shopee) — kalau anda beli melalui pautan tu, kami dapat sikit komisen, tanpa tambah kos kepada anda."
+
+# --- Categories shown in nav (aka "Wards") ---
+wards:
+  - key: battery
+    name: "Ward Bateri"
+    slug: battery
+    color: teal
+  - key: storage
+    name: "Klinik Storan"
+    slug: storage
+    color: mustard
+  - key: accessories
+    name: "Farmasi Aksesori"
+    slug: accessories
+    color: alert
+  - key: screen
+    name: "Jagaan Skrin & Badan"
+    slug: screen
+    color: teal
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+permalink: /artikel/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+markdown: kramdown

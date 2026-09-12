@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <h4>Klinik Gajet</h4>
+        <p style="max-width:36ch;">{{ site.description }}</p>
+      </div>
+      <div>
+        <h4>Ward</h4>
+        <ul>
+          {% for w in site.wards %}
+          <li><a href="{{ '/ward/' | append: w.slug | append: '/' | relative_url }}">{{ w.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h4>Laman</h4>
+        <ul>
+          <li><a href="{{ '/about/' | relative_url }}">Tentang Kami</a></li>
+          <li><a href="{{ '/disclosure/' | relative_url }}">Affiliate &amp; Ads Disclosure</a></li>
+          <li><a href="{{ '/privacy/' | relative_url }}">Dasar Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      &copy; {{ 'now' | date: "%Y" }} Klinik Gajet. Bukan laman rasmi Apple. Semua trademark milik pemilik masing-masing.
+    </div>
+  </div>
+</footer>
